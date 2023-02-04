@@ -17,11 +17,11 @@
 	아래와 같은 것 -->
 	
 	<c:forEach var="article" items="${list }" varStatus="num">
-		${num.index }
+		${article.num }
 		${article.name }
 		${article.kor }
 		${article.eng }	
-		<a href="delete?num=${num.index }">삭제</a> <!-- 삭제는 원래 post방식으로 하는것.  -->
+		<a href="delete?num=${article.num }">삭제</a> <!-- 삭제는 원래 post방식으로 하는것.  -->
 		<br/>
 	</c:forEach>
 	
