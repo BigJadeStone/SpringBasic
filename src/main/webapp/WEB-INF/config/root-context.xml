@@ -7,8 +7,6 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- Root Context: defines shared resources visible to all other web components -->
-
 	<!-- 데이터베이스 정보는 외부 파일로 관리 -->
 	<!-- classpath:/ 자바/리소스 경로를 가르킵니다 -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -41,9 +39,11 @@
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 데이터베이스 정보 전달 -->
 		<property name="dataSource" ref="ds" />
+		<property name="configLocation" value="classpath:/mybatis-config/mybatis-config.xml"/>
 	</bean>
 	
 	<!-- 마이바티스 관련 어노테이션을 찾아서 설정으로 등록 -->
+	<mybatis-spring:scan base-package="com.simple.*"/>
 	<mybatis-spring:scan base-package="com.simple.basic.mapper"/>
 
 
